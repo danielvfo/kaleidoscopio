@@ -150,17 +150,15 @@ const Home: NextPage = () => {
                   <nav className="relative flex items-center justify-between sm:h-10 lg:justify-start" aria-label="Global">
                     <div className="flex flex-shrink-0 flex-grow items-center lg:flex-grow-0">
                       <div className="flex w-full items-center justify-between md:w-auto">
-                        <Link legacyBehavior href="/">
-                          <a>
-                            <span className="sr-only">Your Company</span>
-                            <Image
-                              width={30}
-                              height={30}
-                              alt="Your Company"
-                              className="h-8 w-auto sm:h-10"
-                              src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
-                            />
-                          </a>
+                        <Link href="/">
+                          <span className="sr-only">Your Company</span>
+                          <Image
+                            width={30}
+                            height={30}
+                            alt="Your Company"
+                            className="h-8 w-auto sm:h-10"
+                            src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
+                          />
                         </Link>
                         <div className="-mr-2 flex items-center md:hidden">
                           <Popover.Button className="inline-flex items-center justify-center rounded-md bg-white p-2 text-gray-400 hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
@@ -172,10 +170,8 @@ const Home: NextPage = () => {
                     </div>
                     <div className="hidden md:ml-10 md:block md:space-x-8 md:pr-4">
                       {navigation.map((item) => (
-                        <Link legacyBehavior key={item.name} href={item.href}>
-                          <a className="font-medium text-gray-500 hover:text-gray-900">
-                            {item.name}
-                          </a>
+                        <Link key={item.name} href={item.href} className="font-medium text-gray-500 hover:text-gray-900">
+                          {item.name}
                         </Link>
                       ))}
                     </div>
@@ -218,12 +214,8 @@ const Home: NextPage = () => {
                       </div>
                       <div className="space-y-1 px-2 pt-2 pb-3">
                         {navigation.map((item) => (
-                          <Link legacyBehavior key={item.name} href={item.href}>
-                            <a
-                              className="block rounded-md px-3 py-2 text-base font-medium text-gray-700 hover:bg-gray-50 hover:text-gray-900"
-                            >
-                              {item.name}
-                            </a>
+                          <Link key={item.name} href={item.href} className="block rounded-md px-3 py-2 text-base font-medium text-gray-700 hover:bg-gray-50 hover:text-gray-900">
+                            {item.name}
                           </Link>
                         ))}
                       </div>
@@ -280,8 +272,8 @@ const Home: NextPage = () => {
           <div className="relative lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2">
             <Image
               priority
-              layout="fill"
-              alt=""
+              fill
+              alt="code screenshot"
               className="h-56 w-full object-cover sm:h-72 md:h-96 lg:h-full lg:w-full"
               src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1369&q=60"
             />
@@ -292,10 +284,8 @@ const Home: NextPage = () => {
           <h2
             className="text-2xl font-bold tracking-tight text-gray-900">
             Newest Blogs
-            <Link legacyBehavior href="/blogs">
-              <a className='text-sm ml-1 text-indigo-600'>
-                (See All)
-              </a>
+            <Link href="/blogs" className='text-sm ml-1 text-indigo-600'>
+              (See All)
             </Link>
           </h2>
 
@@ -304,19 +294,16 @@ const Home: NextPage = () => {
             {blogs.map((blog) => (
               <div key={blog.slug} className="group">
                 <div className="h-80 aspect-w-1 aspect-h-1 w-full rounded-md bg-gray-200 group-hover:opacity-75 lg:aspect-none lg:h-40">
-                  <Link legacyBehavior href={`/blogs/${blog.slug}`}>
-                    <a>
-                      <div className="relative h-80 aspect-w-1 aspect-h-1 w-full rounded-md bg-gray-200 group-hover:opacity-75 lg:aspect-none lg:h-40">
-                        <Image
-                          priority
-                          layout="fill"
-                          objectFit="cover"
-                          src={blog.coverImage}
-                          className="rounded-lg hover:cursor-pointer"
-                          alt={""}
-                        />
-                      </div>
-                    </a>
+                  <Link href={`/blogs/${blog.slug}`}>
+                    <div className="relative h-80 aspect-w-1 aspect-h-1 w-full rounded-md bg-gray-200 group-hover:opacity-75 lg:aspect-none lg:h-40">
+                      <Image
+                        priority
+                        fill
+                        src={blog.coverImage}
+                        className="rounded-lg hover:cursor-pointer"
+                        alt={blog.title}
+                      />
+                    </div>
                   </Link>
                 </div>
                 <div className="mt-4 flex justify-between">
@@ -331,11 +318,8 @@ const Home: NextPage = () => {
                   </div>
                 </div>
                 <Link
-                  legacyBehavior
-                  href={`/blogs/${blog.slug}`}>
-                  <a className="text-sm font-bold text-gray-700">
-                    Read More
-                  </a>
+                  href={`/blogs/${blog.slug}`} className="text-sm font-bold text-gray-700">
+                  Read More
                 </Link>
               </div>
             ))}
@@ -347,10 +331,8 @@ const Home: NextPage = () => {
           <h2
             className="text-2xl font-bold tracking-tight text-gray-900">
             Portfolios
-            <Link legacyBehavior href="/portfolios">
-              <a className='text-sm ml-1 text-indigo-600'>
-                (See All)
-              </a>
+            <Link href="/portfolios" className='text-sm ml-1 text-indigo-600'>
+              (See All)
             </Link>
           </h2>
 
@@ -360,18 +342,16 @@ const Home: NextPage = () => {
               <div key={portfolio.slug} className="group relative">
                 <div className="relative h-80 w-full overflow-hidden rounded-lg bg-white group-hover:opacity-75 sm:aspect-w-2 sm:aspect-h-1 sm:h-64 lg:aspect-w-1 lg:aspect-h-1">
                   <Image
-                    layout="fill"
+                    fill
                     src={portfolio.coverImage}
-                    alt={""}
+                    alt={portfolio.title}
                     className="h-full w-full object-cover object-center"
                   />
                 </div>
                 <h3 className="mt-6 text-sm text-gray-500">
-                  <Link legacyBehavior href={`/portfolios/${portfolio.slug}`}>
-                    <a>
-                      <span className="absolute inset-0" />
-                      {portfolio.title}
-                    </a>
+                  <Link href={`/portfolios/${portfolio.slug}`}>
+                    <span className="absolute inset-0" />
+                    {portfolio.title}
                   </Link>
                 </h3>
                 <p className="text-base font-semibold text-gray-900">{portfolio.description}</p>
@@ -386,10 +366,8 @@ const Home: NextPage = () => {
           <nav className="-mx-5 -my-2 flex flex-wrap justify-center" aria-label="Footer">
             {navigation.map((item) => (
               <div key={item.name} className="px-5 py-2">
-                <Link legacyBehavior href={item.href}>
-                  <a className="text-base text-gray-400 hover:text-gray-500">
-                    {item.name}
-                  </a>
+                <Link href={item.href} className="text-base text-gray-400 hover:text-gray-500">
+                  {item.name}
                 </Link>
               </div>
             ))}
